@@ -3,14 +3,11 @@ name: Build APK
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  # 允许手动触发
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build Release APK
+    name: Build APK
     runs-on: ubuntu-latest
 
     steps:
@@ -22,26 +19,27 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
+
+      - name: 设置 Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.6'
 
       - name: 设置 Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: 赋予 Gradle 执行权限
-        run: chmod +x gradlew
-
       - name: 构建 Release APK
-        run: ./gradlew assembleRelease
+        run: gradle assembleRelease
 
-      - name: 上传 APK
+      - name: 构建 Debug APK
+        run: gradle assembleDebug
+
+      - name: 上传 Release APK
         uses: actions/upload-artifact@v4
         with:
           name: yun-memorial-release
           path: app/build/outputs/apk/release/app-release.apk
           retention-days: 30
-
-      - name: 构建 Debug APK
-        run: ./gradlew assembleDebug
 
       - name: 上传 Debug APK
         uses: actions/upload-artifact@v4

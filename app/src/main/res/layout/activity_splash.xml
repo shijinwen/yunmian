@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00568B">
+
+    <!-- Logo 区域 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- 白色圆形背景的 paw emoji -->
+        <TextView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:gravity="center"
+            android:background="@drawable/splash_logo_bg"
+            android:text="🐾"
+            android:textSize="48sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="云纪念"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="为爱宠留下最美的记忆"
+            android:textColor="#B3DEFF"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- 版本号 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:text="v1.0.0"
+        android:textColor="#80FFFFFF"
+        android:textSize="12sp" />
+
+</FrameLayout>

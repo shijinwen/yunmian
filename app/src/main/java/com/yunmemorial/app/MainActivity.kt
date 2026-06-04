@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
         // 设置 UA，方便后端识别来自 Android App
-        settings.userAgentString = settings.userAgentString + " YunMemorialApp/1.0 Android"
+        settings.userAgentString = settings.userAgentString + " YunMemorialApp/2.0 Android"
 
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
